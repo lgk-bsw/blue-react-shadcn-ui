@@ -1,37 +1,66 @@
 import { Page, Header, HeaderTitle, Body } from "blue-react"
+import { appLogo, appTitle } from "../shared"
 
-import { appLogo, appTitle, getPhrase } from "../shared"
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger
+} from "@/components/ui/drawer"
 
 export default function HomePage() {
     return (
         <Page>
             <Header>
-                <HeaderTitle logo={appLogo} appTitle={appTitle}>
-                    {getPhrase("HELLO_WORLD")}
-                </HeaderTitle>
+                <HeaderTitle logo={appLogo} appTitle={appTitle} />
             </Header>
 
-            <Body containerClass="container">
-                <h1 className="page-header mt-4 mb-3">Yay, your new app is ready! What now?</h1>
+            <Body containerClass="container pt-3">
+                <ul>
+                    <li>
+                        <a href="https://bruegmann.github.io/blue-react" target="_blank" rel="noreferrer">
+                            Blue React
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://ui.shadcn.com/" target="_blank" rel="noreferrer">
+                            shadcn/ui
+                        </a>
+                    </li>
+                </ul>
 
-                <ol>
-                    <li>
-                        Remove this placeholder content by editing <code>./src/pages/HomePage.tsx</code>.
-                    </li>
-                    <li>
-                        Register more pages in <code>./src/App.tsx</code>.
-                    </li>
-                    <li>
-                        Take a look at the stylesheets in <code>./src/styles</code>.
-                    </li>
-                    <li>
-                        <a href="https://bruegmann.github.io/blue-react/" target="_blank" rel="noopener noreferrer">
-                            Check out the docs
-                        </a>{" "}
-                        to find out more about the components, utilities and classes. You'll also find many examples
-                        there.
-                    </li>
-                </ol>
+                <Drawer>
+                    <DrawerTrigger asChild>
+                        <button type="button" className="btn blue-btn-soft-primary">
+                            Open Drawer
+                        </button>
+                    </DrawerTrigger>
+                    <DrawerContent>
+                        <div className="mx-auto w-full max-w-sm">
+                            <DrawerHeader>
+                                <DrawerTitle>Move Goal</DrawerTitle>
+                                <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                            </DrawerHeader>
+                            <div className="p-4 pb-0">
+                                <div className="mt-3 h-[120px]">Hello World</div>
+                            </div>
+                            <DrawerFooter>
+                                <button type="button" className="btn blue-btn-soft-primary">
+                                    Submit
+                                </button>
+                                <DrawerClose asChild>
+                                    <button type="button" className="btn blue-btn-soft-secondary">
+                                        Cancel
+                                    </button>
+                                </DrawerClose>
+                            </DrawerFooter>
+                        </div>
+                    </DrawerContent>
+                </Drawer>
             </Body>
         </Page>
     )

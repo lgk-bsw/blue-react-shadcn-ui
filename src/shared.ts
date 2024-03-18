@@ -1,5 +1,5 @@
 export const appLogo = "/logo512.png"
-export const appTitle = "My App Title"
+export const appTitle = "Blue React + shadcn/ui"
 
 export const phrases = {
     HELLO_WORLD: ["Hello World!", "Hallo Welt!"]
